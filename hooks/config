@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# build hooks config
+#
+
+DOCKER_IMAGES="pkgr pkgr-postgrest"
