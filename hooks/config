@@ -3,4 +3,4 @@
 # build hooks config
 #
 
-DOCKER_IMAGES="pkgr pkgr-postgrest"
+DOCKER_IMAGES="pkgr pkgr-postgres"
