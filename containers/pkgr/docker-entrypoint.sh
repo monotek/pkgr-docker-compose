@@ -17,6 +17,8 @@ if [ "$1" = 'pkgr' ]; then
 
   git clone --depth 1 "${ZAMMAD_URL}"
 
+  VERSION="$(git -C zammad describe --tags --abbrev=0)"
+
   if [ -d "${PKGR_DIR}/heroku-buildpack-ruby" ]; then
     rm -r "${PKGR_DIR}/heroku-buildpack-ruby"
   fi
@@ -24,6 +26,6 @@ if [ "$1" = 'pkgr' ]; then
   git clone --depth 1 "${BUILDPACK_URL}"
 
   # build packages
-  pkgr package --buildpack=${PKGR_DIR}/heroku-buildpack-ruby ${PKGR_DIR}/zammad --env="DATABASE_URL=${DATABASE_URL}" "STACK=heroku-16"
+  pkgr package --buildpack=${PKGR_DIR}/heroku-buildpack-ruby ${PKGR_DIR}/zammad --env="DATABASE_URL=${DATABASE_URL}" "STACK=heroku-16" --version=${VERSION}
 
 fi
