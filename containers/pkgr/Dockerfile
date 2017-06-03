@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y git-core ruby ruby-dev build-essential 
 RUN gem install pkgr
 
 # docker init
-COPY docker-entrypoint.sh /
+COPY containers/pkgr/docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["pkgr"]

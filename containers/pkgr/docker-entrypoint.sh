@@ -15,6 +15,6 @@ if [ "$1" = 'pkgr' ]; then
   git clone --depth 1 "${BUILDPACK_URL}"
 
   # build packages
-  pkgr package --buildpack=${PKGR_DIR}/heroku-buildpack-ruby  ${PKGR_DIR}/zammad --env="DATABASE_URL=${DATABASE_URL}"
+  pkgr package --buildpack=${PKGR_DIR}/heroku-buildpack-ruby ${PKGR_DIR}/zammad --env="DATABASE_URL=${DATABASE_URL}"
 
 fi
