@@ -2,7 +2,7 @@ FROM ruby:2.3.1
 MAINTAINER André Bauer <monotek23@gmail.com>
 
 ENV PKGR_DIR /data/pkgr
-ENV ZAMMAD_URL https://github.com/monotek/zammad.git
+ENV ZAMMAD_URL https://github.com/zammad/zammad.git
 ENV DATABASE_URL postgres://zammad:123456@pkgr-postgres/zammad_production
 ENV PACKAGE zammad
 ENV PACKAGE_BRANCH develop
