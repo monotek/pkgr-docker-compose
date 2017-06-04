@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ruby:2.4.1
 MAINTAINER André Bauer <monotek23@gmail.com>
 
 ENV PKGR_DIR /data/pkgr
@@ -9,8 +9,16 @@ ENV PACKAGE_BRANCH develop
 
 VOLUME /data/pkgr
 
+# adding backports
+RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list && apt-get update
+
+# install java from backports
+RUN apt-get install -y -t jessie-backports openssl libssl1.0.0 libssl-dev
+
 # install dependencies
-RUN apt-get update && apt-get install -y git-core ruby ruby-dev build-essential curl libmysqlclient-dev libpq-dev bison zlib1g-dev libssl-dev libxml2-dev libxml2-dev sqlite3 libsqlite3-dev autotools-dev libxslt1-dev libyaml-0-2 autoconf automake libreadline6-dev libyaml-dev libtool libgmp-dev libgdbm-dev libncurses5-dev pkg-config libffi-dev tzdata
+RUN apt-get update && apt-get install -y git-core libgmp3-dev
+
+#RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 # install pkgr
 RUN gem install pkgr
