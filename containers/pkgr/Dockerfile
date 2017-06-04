@@ -3,8 +3,9 @@ MAINTAINER André Bauer <monotek23@gmail.com>
 
 ENV PKGR_DIR /data/pkgr
 ENV ZAMMAD_URL https://github.com/monotek/zammad.git
-ENV BUILDPACK_URL https://github.com/heroku/heroku-buildpack-ruby
 ENV DATABASE_URL postgres://zammad:123456@pkgr-postgres/zammad_production
+ENV PACKAGE zammad
+ENV PACKAGE_BRANCH develop
 
 VOLUME /data/pkgr
 
