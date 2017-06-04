@@ -1,4 +1,4 @@
-FROM ruby:2.4.1
+FROM ruby:2.3.1
 MAINTAINER André Bauer <monotek23@gmail.com>
 
 ENV PKGR_DIR /data/pkgr
@@ -12,7 +12,7 @@ VOLUME /data/pkgr
 # adding backports
 RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list && apt-get update
 
-# install java from backports
+# install openssl from backports
 RUN apt-get install -y -t jessie-backports openssl libssl1.0.0 libssl-dev
 
 # install dependencies
