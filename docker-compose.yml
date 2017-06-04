@@ -6,13 +6,12 @@ services:
     depends_on:
       - pkgr-postgres
     image: monotek/pkgr-docker-compose:pkgr
-    restart: always
     volumes:
       - data-pkgr:/home/pkgr
 
   pkgr-postgres:
     image: monotek/pkgr-docker-compose:pkgr-postgres
-    restart: always
+
 
 volumes:
   data-pkgr:
