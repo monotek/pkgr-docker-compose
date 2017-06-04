@@ -1,4 +1,5 @@
 # pkgr-docker-compose
 
-* docker run -ti --rm --name pkgr-postgres monotek/pkgr-docker-compose:pkgr-postgres
-* docker run -ti --link pkgr-postgres monotek/pkgr-docker-compose:pkgr
+build zammad develop packages from zammads .pkgr.yml
+
+* docker-compose up
