@@ -18,8 +18,6 @@ RUN apt-get install -y -t jessie-backports openssl libssl1.0.0 libssl-dev
 # install dependencies
 RUN apt-get update && apt-get install -y git-core libgmp3-dev
 
-#RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
-
 # install pkgr
 RUN gem install pkgr
 
