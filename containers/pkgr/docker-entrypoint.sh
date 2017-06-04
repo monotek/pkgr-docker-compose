@@ -8,22 +8,19 @@ if [ "$1" = 'pkgr' ]; then
     sleep 5
   done
 
-  cd "${PKGR_DIR}"
-
   # checkout repos
-  if [ -d "${PKGR_DIR}/zammad" ]; then
-    rm -r "${PKGR_DIR}/zammad"
-  fi
-
+  cd "${PKGR_DIR}"
+  
+  test -d "${PKGR_DIR}/zammad" && rm -r "${PKGR_DIR}/zammad"
   git clone --depth 1 "${ZAMMAD_URL}"
 
-  VERSION="$(git -C ${PKGR_DIR}/zammad describe --tags --abbrev=0)"
-
-  if [ -d "${PKGR_DIR}/heroku-buildpack-ruby" ]; then
-    rm -r "${PKGR_DIR}/heroku-buildpack-ruby"
-  fi
-
+  test -d "${PKGR_DIR}/heroku-buildpack-ruby" && rm -r "${PKGR_DIR}/heroku-buildpack-ruby"
   git clone --depth 1 "${BUILDPACK_URL}"
+
+  # get version
+  VERSION="$(git -C ${PKGR_DIR}/zammad describe --tags --abbrev=0)"
+  echo "build package for version ${VERSION}"
+  sleep 2
 
   # build packages
   pkgr package --buildpack=${PKGR_DIR}/heroku-buildpack-ruby ${PKGR_DIR}/zammad --env="DATABASE_URL=${DATABASE_URL}" "STACK=heroku-16" --version=${VERSION:=0.0.0.}
