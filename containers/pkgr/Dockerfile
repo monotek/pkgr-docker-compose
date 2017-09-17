@@ -1,4 +1,4 @@
-FROM ruby:2.3.1
+FROM ruby:2.4.1
 MAINTAINER André Bauer <monotek23@gmail.com>
 
 ENV PKGR_DIR /data/pkgr
