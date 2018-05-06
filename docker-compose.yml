@@ -1,17 +1,14 @@
 version: '3'
 
 services:
-
   pkgr:
     depends_on:
       - pkgr-postgres
     image: monotek/pkgr-docker-compose:pkgr
     volumes:
       - data-pkgr:/home/pkgr
-
   pkgr-postgres:
     image: monotek/pkgr-docker-compose:pkgr-postgres
-
 
 volumes:
   data-pkgr:
